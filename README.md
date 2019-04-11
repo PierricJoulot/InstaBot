@@ -1,4 +1,4 @@
-# InstaBot
+# InstaBot (with selenium package)
 
 This little app I coded asks for your username, password and a maximum of 20 words, then, using selenium, goes on instagram, connects to your account and starts liking recent pictures of hashtags you input.
 
