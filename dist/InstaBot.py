@@ -7,7 +7,7 @@ class InstagramBot:
 	def __init__(self, username, password):
 		self.username = username
 		self.password = password
-		self.driver = webdriver.Chrome()
+		self.driver = webdriver.Safari()
 
 	def closeBrowser(self):
 		self.driver.close()
@@ -46,7 +46,7 @@ class InstagramBot:
 			try:
 				driver.find_element_by_xpath("//button[@class='dCJp8 afkep _0mzm-']/span[@class='glyphsSpriteHeart__outline__24__grey_9 u-__7']").click()
 				count += 1
-				time.sleep(15)
+				time.sleep(20)
 			except Exception as e:
 				time.sleep(1)
 		print(str(count) + ' ' + hashtag + '\'s photos liked!')
@@ -65,7 +65,8 @@ for i in hashtags_str + ' ':
         if i == ' ':
             hashtags_array += [word]
             word = ''
-        word += i
+        else:
+            word += i
         
 if len(hashtags_array) > 20:
     print('Calm your tits! Less than 20 hashtags at a time!')
