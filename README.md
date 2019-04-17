@@ -2,6 +2,9 @@
 
 This little app I coded asks for your username, password and a maximum of 20 words, then, using selenium, goes on instagram, connects to your account and starts liking recent pictures of hashtags you input.
 
+2019/04/17:
+-  Added a progress bar for each hashtag
+
 2019/04/11:
 -  Changed the browser to be safari
 -  Made the time between each likes longer (20 seconds)
