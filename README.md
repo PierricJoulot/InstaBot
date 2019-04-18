@@ -4,6 +4,7 @@ This little app I coded asks for your username, password and a maximum of 20 wor
 
 **2019/04/17:**
 -  Added a progress bar for each hashtag
+<img src="https://github.com/PierricJoulot/InstaBot/blob/master/dist/progress_bar.png" alt="drawing" width="400"/>
 
 **2019/04/11:**
 -  Changed the browser to be safari
