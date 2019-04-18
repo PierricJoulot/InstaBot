@@ -79,3 +79,5 @@ IGB.login()
 
 for i in hashtags_array:
     IGB.like_photo(i)
+
+IGB.closeBrowser()
