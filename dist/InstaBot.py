@@ -2,6 +2,8 @@
 from selenium.webdriver.common.keys import Keys
 import time
 
+delay = 5
+
 class InstagramBot:
 
     def __init__(self, username, password):
@@ -15,10 +17,13 @@ class InstagramBot:
     def login(self):
         driver = self.driver
         driver.get("https://www.instagram.com/")
-        time.sleep(2)
+        time.sleep(delay)
         login_button = driver.find_element_by_xpath("//a[@href='/accounts/login/?source=auth_switcher']")
-        login_button.click()
-        time.sleep(2)
+        try:
+            login_button.click()
+        except Exception as e:
+            IGB.closeBrowser()
+        time.sleep(delay)
         username_elem = driver.find_element_by_xpath("//input[@name='username']")
         username_elem.clear()
         username_elem.send_keys(self.username)
@@ -26,17 +31,17 @@ class InstagramBot:
         password_elem.clear()
         password_elem.send_keys(self.password)
         password_elem.send_keys(Keys.RETURN)
-        time.sleep(2)
+        time.sleep(delay)
 
     def like_photo(self, hashtag):
         print("")
         count = 0
         driver = self.driver
         driver.get("https://www.instagram.com/explore/tags/" + hashtag + "/")
-        time.sleep(2)
+        time.sleep(delay)
         for i in range(1, 3):
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(2)
+            time.sleep(delay)
         hrefs = driver.find_elements_by_tag_name('a')
         pic_hrefs = [elem.get_attribute('href') for elem in hrefs]
         max_pic = len(hrefs)
@@ -50,7 +55,7 @@ class InstagramBot:
                 time.sleep(20)
                 print("\r", hashtag, ": " , "|" , int(30*count/max_pic)*"█" , (30 - int(30*count/max_pic))*" " , "|" , " " , str(int(100*count/max_pic)) , "%", end="", sep="")
             except Exception as e:
-                time.sleep(1)
+                time.sleep(delay-1)
                 count += 1
                 print("\r", hashtag, ": " , "|" , int(30*count/max_pic)*"█" , (30 - int(30*count/max_pic))*" " , "|" , " " , str(int(100*count/max_pic)) , "%", end="", sep="")
         
