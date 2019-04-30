@@ -2,7 +2,7 @@
 from selenium.webdriver.common.keys import Keys
 import time
 
-delay = 5
+delay = 2
 
 class InstagramBot:
 
